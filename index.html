@@ -615,6 +615,8 @@ const state = { city:'madrid', view:'spots', favs:JSON.parse(localStorage.getIte
 document.querySelectorAll('.city-tab').forEach(tab => tab.addEventListener('click', () => {
     state.city = tab.dataset.city;
     render();
+    const section = document.getElementById('city-' + state.city);
+    if (section) section.scrollIntoView({behavior:'smooth', block:'start'});
 }));
 
 // Bottom tabs
