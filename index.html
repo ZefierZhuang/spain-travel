@@ -53,10 +53,6 @@
         .lightbox-close{position:absolute;top:16px;right:16px;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,0.15);border:none;color:white;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px)}
         .lightbox-close:hover{background:rgba(255,255,255,0.25)}
         .pb-safe{padding-bottom:calc(16px + env(safe-area-inset-bottom,0px))}
-        /* 背景知识折叠 */
-        .bg-knowledge p{max-height:5.5em;overflow:hidden;transition:max-height 0.3s var(--ease-spring)}
-        .bg-knowledge.expanded p{max-height:500px}
-        .bg-knowledge-toggle{display:inline-flex;align-items:center;gap:3px;font-size:11px;color:#2563EB;font-weight:500;cursor:pointer;margin-top:4px;border:none;background:none;padding:2px 0}
         *:focus-visible{outline:2.5px solid #C73E1D;outline-offset:3px;border-radius:6px}
         @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.01ms!important;transition-duration:0.01ms!important}}
         .city-tab{padding:10px 18px;border-radius:9999px;font-size:14px;font-weight:600;white-space:nowrap;border:2px solid #E8DED4;color:#6B5B4E;background:transparent;cursor:pointer;transition:all 220ms var(--ease-spring);flex-shrink:0}
@@ -758,23 +754,6 @@ function renderFavList(){
     favIds.forEach(id=>{const card=document.querySelector(`[data-id="${id}"]`);if(card){const name=card.querySelector('h3')?.childNodes[0]?.textContent||id;html+=`<div class="bg-surface rounded-xl p-3.5 mb-2.5 shadow-sm flex justify-between items-center" onclick="state.view='spots';render();setTimeout(()=>document.querySelector('[data-id=\\'${id}\\']')?.scrollIntoView({behavior:'smooth',block:'center'}),100)"><div><b class="text-[14px]">${name}</b><br><span class="text-[11px] text-muted">${state.visited[id]?'✅ 已去':'⭕ 未去'}</span></div><span class="text-brand-600 text-[12px]">查看→</span></div>`}});
     list.innerHTML=html;
 }
-
-// Background knowledge collapse (>120 chars auto fold)
-document.querySelectorAll('.bg-knowledge').forEach(el => {
-    const p = el.querySelector('p');
-    if (p && p.textContent.length > 120) {
-        const btn = document.createElement('button');
-        btn.className = 'bg-knowledge-toggle';
-        btn.textContent = '展开全文 ▾';
-        btn.addEventListener('click', () => {
-            el.classList.toggle('expanded');
-            btn.textContent = el.classList.contains('expanded') ? '收起 ▴' : '展开全文 ▾';
-        });
-        el.appendChild(btn);
-    } else if (p) {
-        p.style.maxHeight = 'none';
-    }
-});
 
 render();
 </script>
