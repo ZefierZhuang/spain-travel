@@ -619,8 +619,15 @@ const state = { city:'madrid', view:'spots', favs:JSON.parse(localStorage.getIte
 document.querySelectorAll('.city-tab').forEach(tab => tab.addEventListener('click', () => {
     state.city = tab.dataset.city;
     render();
-    const section = document.getElementById('city-' + state.city);
-    if (section) section.scrollIntoView({behavior:'smooth', block:'start'});
+    setTimeout(() => {
+        const section = document.getElementById('city-' + state.city);
+        if (section) {
+            const nav = document.querySelector('nav[aria-label="城市导航"]');
+            const offset = nav ? nav.offsetHeight + 8 : 56;
+            const top = section.getBoundingClientRect().top + window.pageYOffset - offset;
+            window.scrollTo({top, behavior:'smooth'});
+        }
+    }, 50);
 }));
 
 // Bottom tabs
