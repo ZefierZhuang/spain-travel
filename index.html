@@ -44,12 +44,14 @@
         .heart-pop{animation:heartPop 0.5s var(--ease-bounce)}
         .gallery-scroll{scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scroll-behavior:smooth}
         .gallery-scroll>*{scroll-snap-align:center}
-        .gallery-scroll img{transition:opacity 0.4s var(--ease-spring);width:100%;height:220px;object-fit:cover;object-position:center 30%;flex-shrink:0}
+        .gallery-scroll img{transition:opacity 0.4s var(--ease-spring);width:100%;height:220px;object-fit:contain;background:#F5EDE3;flex-shrink:0;cursor:zoom-in}
         .gallery-scroll img.loaded{opacity:1}
-        /* 超宽全景图：contain而非cover */
-        .gallery-scroll img.panorama{object-fit:contain;background:#F5EDE3}
-        /* 竖图：居中偏上裁切 */
-        .gallery-scroll img.portrait{object-position:center 20%}
+        /* Lightbox 全图查看 */
+        .lightbox{position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.92);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.25s var(--ease-spring)}
+        .lightbox.show{opacity:1;pointer-events:auto}
+        .lightbox img{max-width:95vw;max-height:90vh;object-fit:contain;border-radius:8px;box-shadow:0 8px 32px rgba(0,0,0,0.5)}
+        .lightbox-close{position:absolute;top:16px;right:16px;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,0.15);border:none;color:white;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px)}
+        .lightbox-close:hover{background:rgba(255,255,255,0.25)}
         .pb-safe{padding-bottom:calc(16px + env(safe-area-inset-bottom,0px))}
         *:focus-visible{outline:2.5px solid #C73E1D;outline-offset:3px;border-radius:6px}
         @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.01ms!important;transition-duration:0.01ms!important}}
@@ -546,6 +548,12 @@
 <!-- Toast -->
 <div id="toast" class="fixed bottom-20 left-1/2 -translate-x-1/2 bg-gray-900/95 backdrop-blur-sm text-white text-[13px] font-medium px-5 py-2.5 rounded-2xl shadow-lg opacity-0 pointer-events-none z-[999]" role="alert" aria-live="polite"></div>
 
+<!-- Lightbox 全图查看 -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <button class="lightbox-close" onclick="closeLightbox()" aria-label="关闭大图">✕</button>
+    <img id="lightbox-img" src="" alt="全图查看">
+</div>
+
 <script>
 // State
 const state = { city:'madrid', view:'spots', favs:JSON.parse(localStorage.getItem('sp-fav')||'{}'), visited:JSON.parse(localStorage.getItem('sp-vis')||'{}') };
@@ -606,6 +614,22 @@ function toggleVisited(btn) {
 
 // Toast
 let tt; function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.style.opacity='1';clearTimeout(tt);tt=setTimeout(()=>{t.style.opacity='0'},1800)}
+
+// Lightbox - 点击图片查看全图
+function openLightbox(src){
+    const lb=document.getElementById('lightbox');
+    document.getElementById('lightbox-img').src=src;
+    lb.classList.add('show');
+    document.body.style.overflow='hidden';
+}
+function closeLightbox(){
+    document.getElementById('lightbox').classList.remove('show');
+    document.body.style.overflow='';
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox()});
+document.querySelectorAll('.gallery-scroll img').forEach(img=>{
+    img.addEventListener('click',e=>{e.stopPropagation();openLightbox(img.src)});
+});
 
 // Restore state
 document.querySelectorAll('.btn-fav').forEach(btn=>{const id=btn.closest('[data-id]')?.dataset.id;if(id&&state.favs[id]){btn.querySelector('.fav-icon').textContent='❤️';btn.classList.add('border-brand-300','text-brand-600','bg-brand-50');btn.classList.remove('border-warm-200','text-muted');btn.setAttribute('aria-pressed','true')}});
