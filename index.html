@@ -58,6 +58,7 @@
         .spot-tag{display:inline-flex;align-items:center;padding:3px 8px;border-radius:6px;font-size:11px;font-weight:500}
         .tag-hot{background:#FEF3C7;color:#92400E}
         .tag-hidden{background:#EDE9FE;color:#5B21B6}
+        .map-btn.active{background:#2C2018;color:white;border-color:#2C2018}
     </style>
 </head>
 <body class="bg-warm-50 text-gray-900 font-sans antialiased min-h-screen">
@@ -219,6 +220,7 @@
 
             <!-- 德波神庙 -->
             <article class="bg-surface rounded-2xl overflow-hidden card-interactive mb-4" data-id="madrid-debod">
+                <div class="relative"><div class="gallery-scroll flex overflow-x-auto no-scrollbar"><img src="img/debod-1.jpg" alt="德波神庙日落时分倒影" class="w-full h-[180px] object-cover flex-shrink-0 loaded"></div><span class="absolute top-2.5 left-2.5 spot-tag tag-hidden">✨ 小众</span></div>
                 <div class="p-4">
                     <div class="flex items-start justify-between">
                         <div>
@@ -238,6 +240,7 @@
 
             <!-- El Capricho -->
             <article class="bg-surface rounded-2xl overflow-hidden card-interactive mb-4" data-id="madrid-capricho">
+                <div class="relative"><div class="gallery-scroll flex overflow-x-auto no-scrollbar"><img src="img/capricho-1.jpg" alt="卡普里乔公园花园" class="w-full h-[180px] object-cover flex-shrink-0 loaded"></div><span class="absolute top-2.5 left-2.5 spot-tag tag-hidden">✨ 小众</span></div>
                 <div class="p-4">
                     <div class="flex items-start justify-between">
                         <div>
@@ -257,6 +260,7 @@
 
             <!-- 索罗利亚博物馆 -->
             <article class="bg-surface rounded-2xl overflow-hidden card-interactive mb-4" data-id="madrid-sorolla">
+                <div class="relative"><div class="gallery-scroll flex overflow-x-auto no-scrollbar"><img src="img/sorolla-1.jpg" alt="索罗利亚博物馆花园" class="w-full h-[180px] object-cover flex-shrink-0 loaded"></div><span class="absolute top-2.5 left-2.5 spot-tag tag-hidden">✨ 小众</span></div>
                 <div class="p-4">
                     <div class="flex items-start justify-between">
                         <div>
@@ -276,6 +280,7 @@
 
             <!-- 塞拉尔博博物馆 -->
             <article class="bg-surface rounded-2xl overflow-hidden card-interactive mb-4" data-id="madrid-cerralbo">
+                <div class="relative"><div class="gallery-scroll flex overflow-x-auto no-scrollbar"><img src="img/cerralbo-1.jpg" alt="塞拉尔博博物馆舞厅" class="w-full h-[180px] object-cover flex-shrink-0 loaded"></div><span class="absolute top-2.5 left-2.5 spot-tag tag-hidden">✨ 小众</span></div>
                 <div class="p-4">
                     <div class="flex items-start justify-between">
                         <div>
@@ -295,6 +300,7 @@
 
             <!-- 蒙克洛亚灯塔 -->
             <article class="bg-surface rounded-2xl overflow-hidden card-interactive mb-4" data-id="madrid-faro">
+                <div class="relative"><div class="gallery-scroll flex overflow-x-auto no-scrollbar"><img src="img/faro-1.jpg" alt="蒙克洛亚观光塔" class="w-full h-[180px] object-cover flex-shrink-0 loaded"></div><span class="absolute top-2.5 left-2.5 spot-tag tag-hidden">✨ 小众</span></div>
                 <div class="p-4">
                     <div class="flex items-start justify-between">
                         <div>
@@ -314,6 +320,7 @@
 
             <!-- 圣费尔南多市场 -->
             <article class="bg-surface rounded-2xl overflow-hidden card-interactive mb-4" data-id="madrid-sanfernando">
+                <div class="relative"><div class="gallery-scroll flex overflow-x-auto no-scrollbar"><img src="img/mercado-1.jpg" alt="圣费尔南多市场" class="w-full h-[180px] object-cover flex-shrink-0 loaded"></div><span class="absolute top-2.5 left-2.5 spot-tag tag-hidden">✨ 小众</span></div>
                 <div class="p-4">
                     <div class="flex items-start justify-between">
                         <div>
@@ -454,6 +461,70 @@
             <article class="bg-surface rounded-2xl overflow-hidden card-interactive mb-4" data-id="barcelona-felipneri"><div class="p-4"><div class="flex items-start justify-between"><div><span class="spot-tag tag-hidden mb-2">✨ 小众</span><h3 class="text-[15px] font-bold mt-1">圣菲利普·内里广场 <span class="text-[12px] text-muted font-normal italic">Plaça Sant Felip Neri</span></h3></div><span class="text-2xl">🕊</span></div><div class="text-[12px] text-muted mt-1">📍 哥特区深处 · 免费</div><p class="text-[13px] text-gray-600 leading-relaxed mt-2">哥特区最隐蔽的小广场，墙面保留着西班牙内战时期的弹片痕迹。中心有喷泉，午后阳光洒落时宁静而动人。需要穿过几条窄巷才能找到——这也是它的魅力所在。</p><div class="flex gap-2.5 pt-3 mt-3 border-t border-warm-100"><button class="btn-fav flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-xl border-[1.5px] border-warm-200 text-[13px] font-medium text-muted btn-press" onclick="toggleFav(this)" aria-pressed="false"><span class="fav-icon">♡</span> 收藏</button><button class="btn-visited flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-xl border-[1.5px] border-warm-200 text-[13px] font-medium text-muted btn-press" onclick="toggleVisited(this)" aria-pressed="false"><span class="visited-icon">○</span> 已去</button></div></div></article>
         </div>
     </section>
+    <!-- ==================== 地图视图 ==================== -->
+    <section class="view-section hidden pt-6" id="view-map">
+        <h2 class="font-serif text-xl font-bold mb-2">🗺️ 景点地图</h2>
+        <p class="text-[12px] text-muted mb-4">收藏的景点用 ❤️ 标注 · 点击标记查看信息</p>
+        <div class="flex gap-1.5 mb-4 overflow-x-auto no-scrollbar">
+            <button class="map-btn active px-3 py-1.5 rounded-full text-[12px] font-medium border border-warm-200 btn-press" data-city="all">全部</button>
+            <button class="map-btn px-3 py-1.5 rounded-full text-[12px] font-medium border border-warm-200 btn-press" data-city="madrid">马德里</button>
+            <button class="map-btn px-3 py-1.5 rounded-full text-[12px] font-medium border border-warm-200 btn-press" data-city="seville">塞维利亚</button>
+            <button class="map-btn px-3 py-1.5 rounded-full text-[12px] font-medium border border-warm-200 btn-press" data-city="granada">格拉纳达</button>
+            <button class="map-btn px-3 py-1.5 rounded-full text-[12px] font-medium border border-warm-200 btn-press" data-city="barcelona">巴塞罗那</button>
+        </div>
+        <div id="leafletMap" class="rounded-2xl overflow-hidden h-[400px] shadow-sm border border-warm-100" style="z-index:1"></div>
+    </section>
+
+    <!-- ==================== 收藏视图 ==================== -->
+    <section class="view-section hidden pt-6" id="view-fav">
+        <h2 class="font-serif text-xl font-bold mb-4">❤️ 我的收藏</h2>
+        <div id="favList"><div class="text-center py-16 text-muted"><div class="text-4xl mb-3">💝</div><p class="text-sm">还没有收藏景点</p><p class="text-[12px] mt-1">点击卡片的 ♡ 开始收藏</p></div></div>
+    </section>
+
+    <!-- ==================== 信息视图 ==================== -->
+    <section class="view-section hidden pt-6" id="view-info">
+        <h2 class="font-serif text-xl font-bold mb-4">📋 实用信息</h2>
+        <div class="bg-red-50 border border-red-100 rounded-2xl p-4 mb-4">
+            <h3 class="text-sm font-bold text-red-800 mb-3">🚨 紧急联系</h3>
+            <div class="space-y-2 text-sm">
+                <div class="flex justify-between"><span>欧洲急救</span><span class="font-bold text-red-700 text-lg">112</span></div>
+                <div class="flex justify-between"><span>国家警察</span><span class="font-bold text-red-700">091</span></div>
+                <div class="flex justify-between"><span>中国大使馆</span><span class="font-semibold text-[13px]">+34 917 519 672</span></div>
+                <div class="flex justify-between"><span>领事保护</span><span class="font-semibold text-[13px]">+86 10 12308</span></div>
+            </div>
+        </div>
+        <div class="bg-surface rounded-2xl p-4 shadow-sm mb-4">
+            <h3 class="text-sm font-bold mb-2.5">🛡️ 安全提醒</h3>
+            <ul class="text-[13px] text-gray-600 space-y-1.5"><li>• 巴塞罗那兰布拉大道/地铁扒窃率极高</li><li>• 背包前背，手机不放后裤兜</li><li>• 警惕"假警察""友谊手环""签名"骗局</li><li>• 餐厅里包放腿上，不挂椅背</li><li>• 护照复印件与原件分开存放</li></ul>
+        </div>
+        <div class="bg-surface rounded-2xl p-4 shadow-sm mb-4">
+            <h3 class="text-sm font-bold mb-2.5">🗣️ 常用西语</h3>
+            <div class="grid grid-cols-2 gap-2 text-[12px]">
+                <div class="bg-warm-50 rounded-lg p-2"><div class="font-semibold">Hola</div><div class="text-muted">你好</div></div>
+                <div class="bg-warm-50 rounded-lg p-2"><div class="font-semibold">Gracias</div><div class="text-muted">谢谢</div></div>
+                <div class="bg-warm-50 rounded-lg p-2"><div class="font-semibold">La cuenta</div><div class="text-muted">买单</div></div>
+                <div class="bg-warm-50 rounded-lg p-2"><div class="font-semibold">¿Cuánto?</div><div class="text-muted">多少钱</div></div>
+                <div class="bg-warm-50 rounded-lg p-2"><div class="font-semibold">¡Qué rico!</div><div class="text-muted">好吃！</div></div>
+                <div class="bg-warm-50 rounded-lg p-2"><div class="font-semibold">Perdón</div><div class="text-muted">对不起</div></div>
+            </div>
+        </div>
+        <div class="bg-surface rounded-2xl p-4 shadow-sm mb-4">
+            <h3 class="text-sm font-bold mb-2.5">💡 省钱窍门</h3>
+            <ul class="text-[13px] text-gray-600 space-y-1.5"><li>• Menú del Día 午餐套餐 €10-15 含三道菜</li><li>• 多数博物馆关门前1-2h免费</li><li>• ATM选银行机器，避开Euronet（手续费10%+）</li><li>• 刷卡选欧元结算，不选人民币动态转换</li><li>• 超市推荐 Mercadona/Lidl</li></ul>
+        </div>
+        <div class="bg-surface rounded-2xl p-4 shadow-sm">
+            <h3 class="text-sm font-bold mb-2.5">💰 预算概览 <span class="text-[12px] font-normal text-muted">2人8天 · 不含机票</span></h3>
+            <div class="text-center mb-4"><div class="text-2xl font-bold text-brand-600">¥25,000</div><div class="text-[11px] text-muted">≈ €3,100</div></div>
+            <div class="space-y-2 text-[13px]">
+                <div class="flex justify-between"><span>🏨 住宿 7晚</span><span class="font-semibold">€1,200</span></div>
+                <div class="flex justify-between"><span>🍽️ 餐饮</span><span class="font-semibold">€800</span></div>
+                <div class="flex justify-between"><span>🚄 城际交通</span><span class="font-semibold">€400</span></div>
+                <div class="flex justify-between"><span>🎫 门票体验</span><span class="font-semibold">€350</span></div>
+                <div class="flex justify-between"><span>🚇 市内交通</span><span class="font-semibold">€150</span></div>
+                <div class="flex justify-between"><span>📱 通讯杂费</span><span class="font-semibold">€200</span></div>
+            </div>
+        </div>
+    </section>
 </main>
 
 <!-- Bottom Bar -->
@@ -487,9 +558,24 @@ document.querySelectorAll('.tab-btn').forEach(btn => btn.addEventListener('click
 }));
 
 function render() {
+    // City tabs
     document.querySelectorAll('.city-tab').forEach(t => t.classList.toggle('active', t.dataset.city === state.city));
-    document.querySelectorAll('.city-section').forEach(s => s.classList.toggle('hidden', s.id !== `city-${state.city}`));
+    // All city sections
+    document.querySelectorAll('.city-section').forEach(s => s.classList.toggle('hidden', true));
+    // All view sections
+    document.querySelectorAll('.view-section').forEach(s => s.classList.toggle('hidden', true));
+    // Bottom tabs
     document.querySelectorAll('.tab-btn').forEach(t => t.classList.toggle('active', t.dataset.view === state.view));
+
+    if (state.view === 'spots') {
+        document.getElementById(`city-${state.city}`).classList.remove('hidden');
+        document.querySelector('nav[aria-label="城市导航"]').classList.remove('hidden');
+    } else {
+        document.querySelector('nav[aria-label="城市导航"]').classList.add('hidden');
+        document.getElementById(`view-${state.view}`).classList.remove('hidden');
+        if (state.view === 'map') setTimeout(initMap, 50);
+        if (state.view === 'fav') renderFavList();
+    }
 }
 
 // Favorites
@@ -519,6 +605,63 @@ let tt; function showToast(msg){const t=document.getElementById('toast');t.textC
 // Restore state
 document.querySelectorAll('.btn-fav').forEach(btn=>{const id=btn.closest('[data-id]')?.dataset.id;if(id&&state.favs[id]){btn.querySelector('.fav-icon').textContent='❤️';btn.classList.add('border-brand-300','text-brand-600','bg-brand-50');btn.classList.remove('border-warm-200','text-muted');btn.setAttribute('aria-pressed','true')}});
 document.querySelectorAll('.btn-visited').forEach(btn=>{const id=btn.closest('[data-id]')?.dataset.id;if(id&&state.visited[id]){btn.querySelector('.visited-icon').textContent='✓';btn.classList.add('border-green-400','text-green-600','bg-green-50');btn.classList.remove('border-warm-200','text-muted');btn.setAttribute('aria-pressed','true')}});
+
+// Leaflet Map
+const spots=[
+{id:'madrid-palacio',name:'马德里王宫',lat:40.418,lng:-3.714,city:'madrid'},
+{id:'madrid-prado',name:'普拉多博物馆',lat:40.414,lng:-3.692,city:'madrid'},
+{id:'madrid-retiro',name:'丽池公园',lat:40.415,lng:-3.684,city:'madrid'},
+{id:'madrid-sofia',name:'索菲亚艺术中心',lat:40.409,lng:-3.694,city:'madrid'},
+{id:'madrid-debod',name:'德波神庙',lat:40.424,lng:-3.718,city:'madrid'},
+{id:'madrid-capricho',name:'卡普里乔公园',lat:40.459,lng:-3.614,city:'madrid'},
+{id:'madrid-faro',name:'蒙克洛亚塔',lat:40.436,lng:-3.720,city:'madrid'},
+{id:'seville-alcazar',name:'塞维利亚王宫',lat:37.383,lng:-5.991,city:'seville'},
+{id:'seville-plaza',name:'西班牙广场',lat:37.377,lng:-5.987,city:'seville'},
+{id:'seville-cathedral',name:'大教堂',lat:37.386,lng:-5.993,city:'seville'},
+{id:'seville-metropol',name:'都市阳伞',lat:37.393,lng:-5.991,city:'seville'},
+{id:'seville-triana',name:'特里亚纳',lat:37.384,lng:-6.003,city:'seville'},
+{id:'granada-alhambra',name:'阿尔罕布拉宫',lat:37.176,lng:-3.588,city:'granada'},
+{id:'granada-albaicin',name:'阿尔拜辛',lat:37.181,lng:-3.593,city:'granada'},
+{id:'granada-sacromonte',name:'萨克罗蒙特',lat:37.185,lng:-3.581,city:'granada'},
+{id:'barcelona-sagrada',name:'圣家堂',lat:41.404,lng:2.174,city:'barcelona'},
+{id:'barcelona-gothic',name:'哥特区',lat:41.383,lng:2.176,city:'barcelona'},
+{id:'barcelona-bunkers',name:'卡梅尔碉堡',lat:41.419,lng:2.159,city:'barcelona'},
+{id:'barcelona-vicens',name:'维森斯之家',lat:41.403,lng:2.151,city:'barcelona'},
+{id:'barcelona-laberint',name:'迷宫公园',lat:41.440,lng:2.146,city:'barcelona'},
+];
+const cityViews={all:[39.5,-1.5,6],madrid:[40.42,-3.70,13],seville:[37.385,-5.993,14],granada:[37.179,-3.590,14],barcelona:[41.40,2.17,13]};
+let leafletMap=null,mapMarkers=[];
+function initMap(){
+    if(leafletMap){leafletMap.invalidateSize();renderMarkers();return}
+    leafletMap=L.map('leafletMap',{zoomControl:false}).setView([39.5,-1.5],6);
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',{attribution:'© OSM © CARTO',subdomains:'abcd',maxZoom:19}).addTo(leafletMap);
+    L.control.zoom({position:'bottomright'}).addTo(leafletMap);
+    renderMarkers();
+}
+function renderMarkers(city){
+    mapMarkers.forEach(m=>leafletMap.removeLayer(m));mapMarkers=[];
+    const list=!city||city==='all'?spots:spots.filter(s=>s.city===city);
+    list.forEach(spot=>{
+        const isFav=state.favs[spot.id],isVis=state.visited[spot.id];
+        let bg='#94a3b8',sz=28,label='📍';
+        if(isFav){bg='#C73E1D';sz=34;label='❤️'}
+        if(isVis){bg='#27AE60';sz=32;label='✓'}
+        const icon=L.divIcon({className:'',html:`<div style="width:${sz}px;height:${sz}px;background:${bg};border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:${sz*0.4}px;border:3px solid white;box-shadow:0 2px 8px rgba(0,0,0,0.3)">${label}</div>`,iconSize:[sz,sz],iconAnchor:[sz/2,sz/2]});
+        mapMarkers.push(L.marker([spot.lat,spot.lng],{icon}).addTo(leafletMap).bindPopup(`<b>${spot.name}</b><br><span style="font-size:11px">${isFav?'❤️收藏':''}${isVis?' ✅已去':''}</span>`,{closeButton:false}));
+    });
+    const v=cityViews[city||'all'];leafletMap.setView([v[0],v[1]],v[2],{animate:true});
+}
+document.querySelectorAll('.map-btn').forEach(btn=>{btn.addEventListener('click',()=>{document.querySelectorAll('.map-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');renderMarkers(btn.dataset.city)})});
+
+// Fav list render
+function renderFavList(){
+    const list=document.getElementById('favList');
+    const favIds=Object.keys(state.favs).filter(k=>state.favs[k]);
+    if(!favIds.length){list.innerHTML='<div class="text-center py-16 text-muted"><div class="text-4xl mb-3">💝</div><p class="text-sm">还没有收藏</p></div>';return}
+    let html='';
+    favIds.forEach(id=>{const card=document.querySelector(`[data-id="${id}"]`);if(card){const name=card.querySelector('h3')?.childNodes[0]?.textContent||id;html+=`<div class="bg-surface rounded-xl p-3.5 mb-2.5 shadow-sm flex justify-between items-center" onclick="state.view='spots';render();setTimeout(()=>document.querySelector('[data-id=\\'${id}\\']')?.scrollIntoView({behavior:'smooth',block:'center'}),100)"><div><b class="text-[14px]">${name}</b><br><span class="text-[11px] text-muted">${state.visited[id]?'✅ 已去':'⭕ 未去'}</span></div><span class="text-brand-600 text-[12px]">查看→</span></div>`}});
+    list.innerHTML=html;
+}
 
 render();
 </script>
